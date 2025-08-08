@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cuestionario de Marketing Digital para Escuelas</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f0f9ff; /* Light blue background */
+        }
+        .form-section {
+            background-color: white;
+            padding: 1.5rem; /* Base padding */
+            border-radius: 0.75rem;
+            box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+            margin-bottom: 2rem;
+        }
+        @media (min-width: 640px) { /* sm breakpoint */
+            .form-section {
+                padding: 2rem;
+            }
+        }
+        .form-label {
+            font-weight: 600;
+            color: #374151; /* Dark gray */
+            margin-bottom: 0.5rem;
+            display: block;
+        }
+        .form-input, .form-textarea {
+            width: 100%;
+            padding: 0.75rem;
+            border: 1px solid #D1D5DB;
+            border-radius: 0.5rem;
+            transition: border-color 0.2s, box-shadow 0.2s;
+        }
+        .form-input:focus, .form-textarea:focus {
+            outline: none;
+            border-color: #2563eb; /* Darker blue on focus */
+            box-shadow: 0 0 0 2px rgba(37, 99, 235, 0.4);
+        }
+        .form-input:disabled {
+            background-color: #f3f4f6;
+            cursor: not-allowed;
+        }
+        .form-checkbox-label, .form-radio-label {
+            display: flex;
+            align-items: center;
+            margin-bottom: 0.5rem;
+            cursor: pointer;
+        }
+        .form-checkbox, .form-radio {
+            margin-right: 0.75rem;
+            height: 1.25rem;
+            width: 1.25rem;
+            accent-color: #2563eb;
+        }
+        #reporte-container ul {
+            list-style-position: inside;
+            padding-left: 1rem;
+        }
+        #reporte-container li {
+            margin-bottom: 0.5rem;
+        }
+        .reporte-titulo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #1e3a8a; /* Dark blue */
+            border-bottom: 2px solid #dbeafe; /* Light blue border */
+            padding-bottom: 0.5rem;
+            margin-bottom: 1.5rem;
+            margin-top: 1.5rem;
+        }
+        .reporte-subtitulo {
+            font-weight: 600;
+            color: #1f2937;
+        }
+    </style>
+</head>
+<body class="p-4 sm:p-6 md:p-8">
+
+    <div class="max-w-4xl mx-auto">
+        <header class="text-center mb-10">
+            <h1 class="text-3xl sm:text-4xl font-bold text-blue-900">Cuestionario Estratégico de Marketing Digital</h1>
+            <p id="main-subtitle" class="mt-2 text-lg text-blue-700">Complete este formulario para realizar un diagnóstico de su institución.</p>
+        </header>
+
+        <main id="form-container">
+            <form id="marketing-form">
+                <!-- Sección 1: Identidad y Objetivos -->
+                <fieldset class="form-section">
+                    <legend class="text-2xl font-bold mb-6 border-b pb-2 w-full text-gray-800">Sección 1: Identidad y Objetivos</legend>
+                    <div class="mb-6">
+                        <label class="form-label" for="puv1">1. Propuesta Única de Valor (PUV): 3 principales diferenciadores</label>
+                        <input type="text" id="puv1" name="puv1" class="form-input mb-2" placeholder="Diferenciador 1" required>
+                        <input type="text" id="puv2" name="puv2" class="form-input mb-2" placeholder="Diferenciador 2" required>
+                        <input type="text" id="puv3" name="puv3" class="form-input" placeholder="Diferenciador 3" required>
+                    </div>
+                    <div class="mb-6">
+                        <label class="form-label">2. Objetivo Principal</label>
+                        <div class="space-y-2">
+                            <label class="form-radio-label"><input type="radio" name="objetivo" value="Aumentar inscritos" class="form-radio" required> Aumentar el número de alumnos inscritos</label>
+                            <label class="form-radio-label"><input type="radio" name="objetivo" value="Fortalecer prestigio" class="form-radio"> Fortalecer el prestigio y reconocimiento de la marca</label>
+                            <label class="form-radio-label"><input type="radio" name="objetivo" value="Promocionar programa" class="form-radio"> Promocionar un nuevo nivel educativo o programa</label>
+                            <label class="form-radio-label"><input type="radio" name="objetivo" value="Otro" class="form-radio"> Otro: <input type="text" name="objetivo_otro" class="form-input ml-2 flex-1"></label>
+                        </div>
+                    </div>
+                    <div>
+                        <label class="form-label" for="kpi">3. Meta Cuantificable (KPI)</label>
+                        <input type="text" id="kpi" name="kpi" class="form-input" placeholder="Ej: Lograr 100 solicitudes de información en 3 meses" required>
+                    </div>
+                </fieldset>
+
+                <!-- Sección 2: Público Objetivo -->
+                <fieldset class="form-section">
+                    <legend class="text-2xl font-bold mb-6 border-b pb-2 w-full text-gray-800">Sección 2: Público Objetivo</legend>
+                    <div class="mb-6">
+                        <label class="form-label" for="zonas_residencia">1. Perfil Ideal: Zonas de residencia clave</label>
+                        <input type="text" id="zonas_residencia" name="zonas_residencia" class="form-input" placeholder="Ej: Centro de Tizayuca, Haciendas de Tizayuca" required>
+                    </div>
+                    <div class="mb-6">
+                        <label class="form-label" for="valores_padres">1. Perfil Ideal: ¿Qué es lo que más valoran los padres?</label>
+                        <input type="text" id="valores_padres" name="valores_padres" class="form-input" placeholder="Ej: Disciplina, bilingüismo, seguridad" required>
+                    </div>
+                    <div>
+                        <label class="form-label">2. Hábitos Digitales (seleccione al menos uno)</label>
+                        <div class="space-y-2">
+                            <label class="form-checkbox-label"><input type="checkbox" name="habitos" value="Google" class="form-checkbox"> Buscando en Google</label>
+                            <label class="form-checkbox-label"><input type="checkbox" name="habitos" value="Facebook" class="form-checkbox"> En Facebook</label>
+                            <label class="form-checkbox-label"><input type="checkbox" name="habitos" value="Instagram" class="form-checkbox"> En Instagram</label>
+                            <label class="form-checkbox-label"><input type="checkbox" name="habitos" value="WhatsApp" class="form-checkbox"> En grupos de WhatsApp / Telegram</label>
+                            <label class="form-checkbox-label"><input type="checkbox" name="habitos" value="YouTube" class="form-checkbox"> Viendo videos en YouTube</label>
+                        </div>
+                    </div>
+                </fieldset>
+
+                <!-- Sección 3: Activos Digitales -->
+                <fieldset class="form-section">
+                    <legend class="text-2xl font-bold mb-6 border-b pb-2 w-full text-gray-800">Sección 3: Diagnóstico de Activos Digitales</legend>
+                    <div class="mb-6">
+                        <label class="form-label" for="sitio_web">1. Sitio Web</label>
+                        <input type="url" id="sitio_web" name="sitio_web" class="form-input" placeholder="https://www.suescuela.com" required>
+                        <label class="form-checkbox-label mt-2">
+                            <input type="checkbox" id="no-website" class="form-checkbox"> No tengo página web
+                        </label>
+                        <div class="mt-4">
+                            <label class="form-label">¿Está adaptado para celulares?</label>
+                            <label class="form-radio-label inline-flex mr-4"><input type="radio" name="adaptado_cel" value="Sí" class="form-radio" required> Sí</label>
+                            <label class="form-radio-label inline-flex mr-4"><input type="radio" name="adaptado_cel" value="No" class="form-radio"> No</label>
+                            <label class="form-radio-label inline-flex"><input type="radio" name="adaptado_cel" value="No sé" class="form-radio"> No sé</label>
+                        </div>
+                    </div>
+                    <div class="mb-6">
+                         <label class="form-label">Presencia en Redes Sociales y Frecuencia</label>
+                         <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+                            <div>
+                                <label class="form-checkbox-label"><input type="checkbox" name="redes" value="Facebook" class="form-checkbox"> Facebook</label>
+                                <input type="text" name="frecuencia_fb" class="form-input mt-1" placeholder="Frecuencia">
+                            </div>
+                            <div>
+                                <label class="form-checkbox-label"><input type="checkbox" name="redes" value="Instagram" class="form-checkbox"> Instagram</label>
+                                <input type="text" name="frecuencia_ig" class="form-input mt-1" placeholder="Frecuencia">
+                            </div>
+                             <div>
+                                <label class="form-checkbox-label"><input type="checkbox" name="redes" value="TikTok" class="form-checkbox"> TikTok</label>
+                                <input type="text" name="frecuencia_tt" class="form-input mt-1" placeholder="Frecuencia">
+                            </div>
+                         </div>
+                    </div>
+                    <div>
+                        <label class="form-label" for="contenido_actual">2. Contenido Actual</label>
+                        <textarea id="contenido_actual" name="contenido_actual" rows="3" class="form-textarea" placeholder="¿Qué tipo de contenido suelen publicar?" required></textarea>
+                    </div>
+                </fieldset>
+
+                <!-- Sección 4 y 5 -->
+                <fieldset class="form-section">
+                    <legend class="text-2xl font-bold mb-6 border-b pb-2 w-full text-gray-800">Sección 4: Estrategias y Alcances</legend>
+                    <div class="mb-6">
+                        <label class="form-label">1. Disposición para Publicidad Pagada</label>
+                        <div class="space-y-2">
+                            <label class="form-radio-label"><input type="radio" name="pub_pagada" value="Sí, Google" class="form-radio" required> Sí, para aparecer en Google</label>
+                            <label class="form-radio-label"><input type="radio" name="pub_pagada" value="Sí, Redes Sociales" class="form-radio"> Sí, para mostrar anuncios en Facebook e Instagram</label>
+                            <label class="form-radio-label"><input type="radio" name="pub_pagada" value="Tal vez" class="form-radio"> Tal vez, necesito entender mejor el ROI</label>
+                            <label class="form-radio-label"><input type="radio" name="pub_pagada" value="No" class="form-radio"> No, preferimos estrategias orgánicas</label>
+                        </div>
+                    </div>
+                    <div>
+                        <label class="form-label">2. Interés en Marketing de Contenidos</label>
+                        <div class="space-y-2">
+                            <label class="form-radio-label"><input type="radio" name="mkt_contenidos" value="Muy interesados" class="form-radio" required> Muy interesados</label>
+                            <label class="form-radio-label"><input type="radio" name="mkt_contenidos" value="Algo interesados" class="form-radio"> Algo interesados</label>
+                            <label class="form-radio-label"><input type="radio" name="mkt_contenidos" value="Poco interesados" class="form-radio"> Poco interesados</label>
+                        </div>
+                    </div>
+                </fieldset>
+                <fieldset class="form-section">
+                    <legend class="text-2xl font-bold mb-6 border-b pb-2 w-full text-gray-800">Sección 5: Recursos y Presupuesto</legend>
+                    <div class="mb-6">
+                        <label class="form-label">1. Presupuesto Mensual para Marketing Digital</label>
+                        <div class="space-y-2">
+                            <label class="form-radio-label"><input type="radio" name="presupuesto" value="$0 - $3,000 MXN" class="form-radio" required> $0 - $3,000 MXN</label>
+                            <label class="form-radio-label"><input type="radio" name="presupuesto" value="$3,001 - $7,000 MXN" class="form-radio"> $3,001 - $7,000 MXN</label>
+                            <label class="form-radio-label"><input type="radio" name="presupuesto" value="$7,001 - $15,000 MXN" class="form-radio"> $7,001 - $15,000 MXN</label>
+                            <label class="form-radio-label"><input type="radio" name="presupuesto" value="Aún no está definido" class="form-radio"> Aún no está definido</label>
+                        </div>
+                    </div>
+                    <div>
+                        <label class="form-label">2. Recursos Humanos para creación y seguimiento</label>
+                        <div class="space-y-2">
+                            <label class="form-radio-label"><input type="radio" name="recursos_humanos" value="Personal interno" class="form-radio" required> Contamos con personal interno</label>
+                            <label class="form-radio-label"><input type="radio" name="recursos_humanos" value="Contratar externo" class="form-radio"> Necesitaríamos contratar a un profesional externo</label>
+                            <label class="form-radio-label"><input type="radio" name="recursos_humanos" value="La agencia/estratega" class="form-radio"> Esperamos que la agencia o el estratega se encargue de todo</label>
+                        </div>
+                    </div>
+                </fieldset>
+            </form>
+            <div class="form-section text-center">
+                <button type="button" onclick="generarReporte()" class="w-full sm:w-auto bg-blue-600 text-white font-bold py-3 px-10 rounded-lg hover:bg-blue-700 transition-transform transform hover:scale-105 text-lg shadow-lg">
+                    Generar Reporte Final
+                </button>
+            </div>
+        </main>
+
+        <!-- Contenedor del Reporte (inicialmente oculto) -->
+        <section id="reporte-container" class="hidden">
+            <div id="reporte-contenido" class="form-section">
+                <!-- El contenido del reporte se insertará aquí -->
+            </div>
+        </section>
+    </div>
+
+    <script>
+        document.getElementById('no-website').addEventListener('change', function() {
+            const websiteInput = document.getElementById('sitio_web');
+            if (this.checked) {
+                websiteInput.disabled = true;
+                websiteInput.required = false;
+                websiteInput.value = '';
+            } else {
+                websiteInput.disabled = false;
+                websiteInput.required = true;
+            }
+        });
+
+        function generarReporte() {
+            const form = document.getElementById('marketing-form');
+            
+            const habitosCheckboxes = form.querySelectorAll('input[name="habitos"]:checked');
+            if (habitosCheckboxes.length === 0) {
+                alert('Por favor, seleccione al menos un hábito digital en la Sección 2.');
+                return;
+            }
+
+            if (!form.checkValidity()) {
+                form.reportValidity();
+                return;
+            }
+
+            const formData = new FormData(form);
+            let reporteHtml = '';
+
+            // Sección 1
+            reporteHtml += '<h3 class="reporte-titulo">Sección 1: Identidad y Objetivos</h3>';
+            reporteHtml += `<p><span class="reporte-subtitulo">1. Propuesta Única de Valor:</span><ul><li>${formData.get('puv1')}</li><li>${formData.get('puv2')}</li><li>${formData.get('puv3')}</li></ul></p>`;
+            let objetivo = formData.get('objetivo');
+            if (objetivo === 'Otro') {
+                objetivo = `Otro: ${formData.get('objetivo_otro') || 'No especificado'}`;
+            }
+            reporteHtml += `<p><span class="reporte-subtitulo">2. Objetivo Principal:</span> ${objetivo}</p>`;
+            reporteHtml += `<p><span class="reporte-subtitulo">3. Meta Cuantificable (KPI):</span> ${formData.get('kpi')}</p>`;
+
+            // Sección 2
+            reporteHtml += '<h3 class="reporte-titulo">Sección 2: Público Objetivo</h3>';
+            reporteHtml += `<p><span class="reporte-subtitulo">1. Perfil Ideal:</span><ul><li>Zonas Clave: ${formData.get('zonas_residencia')}</li><li>Valores Principales: ${formData.get('valores_padres')}</li></ul></p>`;
+            const habitos = Array.from(habitosCheckboxes).map(el => el.value).join(', ');
+            reporteHtml += `<p><span class="reporte-subtitulo">2. Hábitos Digitales:</span> ${habitos}</p>`;
+
+            // Sección 3
+            reporteHtml += '<h3 class="reporte-titulo">Sección 3: Diagnóstico de Activos Digitales</h3>';
+            const sitioWeb = document.getElementById('no-website').checked ? 'No tiene página web' : formData.get('sitio_web');
+            reporteHtml += `<p><span class="reporte-subtitulo">1. Sitio Web:</span> ${sitioWeb}</p>`;
+            reporteHtml += `<p class="ml-4"><span class="font-medium">¿Adaptado para celulares?:</span> ${formData.get('adaptado_cel')}</p>`;
+            const redes = Array.from(form.querySelectorAll('input[name="redes"]:checked')).map(el => el.value);
+            reporteHtml += `<p class="mt-4"><span class="reporte-subtitulo">Redes Sociales y Frecuencia:</span></p><ul>`;
+            if (redes.length > 0) {
+                 if (redes.includes('Facebook')) reporteHtml += `<li>Facebook: (Frecuencia: ${formData.get('frecuencia_fb') || 'N/A'})</li>`;
+                 if (redes.includes('Instagram')) reporteHtml += `<li>Instagram: (Frecuencia: ${formData.get('frecuencia_ig') || 'N/A'})</li>`;
+                 if (redes.includes('TikTok')) reporteHtml += `<li>TikTok: (Frecuencia: ${formData.get('frecuencia_tt') || 'N/A'})</li>`;
+            } else {
+                reporteHtml += '<li>No se utiliza ninguna red social.</li>';
+            }
+            reporteHtml += '</ul>';
+            reporteHtml += `<p class="mt-4"><span class="reporte-subtitulo">2. Contenido Actual:</span> ${formData.get('contenido_actual')}</p>`;
+
+            // Sección 4
+            reporteHtml += '<h3 class="reporte-titulo">Sección 4: Estrategias y Alcances</h3>';
+            reporteHtml += `<p><span class="reporte-subtitulo">1. Disposición para Publicidad Pagada:</span> ${formData.get('pub_pagada')}</p>`;
+            reporteHtml += `<p><span class="reporte-subtitulo">2. Interés en Marketing de Contenidos:</span> ${formData.get('mkt_contenidos')}</p>`;
+
+            // Sección 5
+            reporteHtml += '<h3 class="reporte-titulo">Sección 5: Recursos y Presupuesto</h3>';
+            reporteHtml += `<p><span class="reporte-subtitulo">1. Presupuesto Mensual:</span> ${formData.get('presupuesto')}</p>`;
+            reporteHtml += `<p><span class="reporte-subtitulo">2. Recursos Humanos:</span> ${formData.get('recursos_humanos')}</p>`;
+
+            document.getElementById('reporte-contenido').innerHTML = reporteHtml;
+            document.getElementById('form-container').classList.add('hidden');
+            document.getElementById('reporte-container').classList.remove('hidden');
+            document.getElementById('main-subtitle').textContent = "Reporte de Respuestas Generado";
+            window.scrollTo(0, 0); // Scroll to top to see the report
+        }
+    </script>
+</body>
+</html>
